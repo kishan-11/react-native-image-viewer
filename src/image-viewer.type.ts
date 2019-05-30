@@ -235,8 +235,9 @@ export class State {
 }
 
 export interface IImageInfo {
-  type: string,
-  src: string;
+  type?: string;
+  src?: string;
+  url?: string;
   /**
    * 没有的话会自动拉取
    */
