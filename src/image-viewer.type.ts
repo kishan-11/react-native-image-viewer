@@ -178,7 +178,7 @@ export class Props {
   /**
    * function that fires when user swipes down
    */
-  public onSwipeDown?: () => void = () => {
+  public onSwipeDown?: (isSucess?: boolean) => void = () => {
     //
   };
 
@@ -235,7 +235,8 @@ export class State {
 }
 
 export interface IImageInfo {
-  url: string;
+  type: string,
+  src: string;
   /**
    * 没有的话会自动拉取
    */
