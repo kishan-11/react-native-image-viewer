@@ -22,7 +22,6 @@ import { IImageInfo, IImageSize, Props, State } from './image-viewer.type';
 export default class ImageViewer extends React.Component<Props, State> {
   public static defaultProps = new Props();
   public state = new State();
-  private animatedY = new Animated.value(0);
   // 背景透明度渐变动画
   private fadeAnim = new Animated.Value(0);
 
@@ -592,7 +591,7 @@ export default class ImageViewer extends React.Component<Props, State> {
     });
 
     return (
-      <Animated.View style={{ zIndex: 9, top: this.animatedY }}>
+      <Animated.View style={{ zIndex: 9 }}>
         <Animated.View style={{ ...this.styles.container, opacity: this.fadeAnim }}>
           {this!.props!.renderHeader!(this.state.currentShowIndex)}
 
