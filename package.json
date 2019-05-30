@@ -1,5 +1,5 @@
 {
-  "name": "@housing/react-native-image-zoom-viewer",
+  "name": "react-native-image-zoom-viewer1",
   "version": "1.0.0",
   "description": "react native image viewer",
   "main": "built/index.js",
@@ -18,7 +18,7 @@
   "author": "Kishan Patel",
   "license": "MIT",
   "dependencies": {
-    "@housing/react-native-image-pan-zoom": "git+https://kishan-11@github.com/kishan-11/react-native-image-zoom"
+    "react-native-image-pan-zoom1": "git+https://kishan-11@github.com/kishan-11/react-native-image-zoom"
   },
   "peerDependencies": {
     "react": "*",
