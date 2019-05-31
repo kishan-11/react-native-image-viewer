@@ -686,8 +686,8 @@ export default class ImageViewer extends React.Component<Props, State> {
     this.handleCancel();
   };
 
-  public handlePanSwipeDown = (dY: number) => {
-    if (this.props.handlePanSwipeDown) {
+  public handlePanSwipeDown = (dY: number | undefined) => {
+    if (dY && this.props.handlePanSwipeDown) {
       this.props.handlePanSwipeDown(dY);
     }
   };
