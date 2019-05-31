@@ -174,14 +174,14 @@ export default class ImageViewer extends React.Component<Props, State> {
     let imageLoaded = false;
 
     // Tagged success if url is started with file:, or not set yet(for custom source.uri).
-    if (!image.url || image.url.startsWith(`file:`)) {
+    if (!image.src || image.src.startsWith(`file:`)) {
       imageLoaded = true;
     }
 
     // 如果已知源图片宽高，直接设置为 success
     if (image.width && image.height){
       if(this.props.enablePreload && imageLoaded===false){
-        Image.prefetch(image.url)
+        Image.prefetch(image.src)
       }
       imageStatus.width = image.width;
       imageStatus.height = image.height;
@@ -191,7 +191,7 @@ export default class ImageViewer extends React.Component<Props, State> {
     }
 
     Image.getSize(
-      image.url,
+      image.src,
       (width: number, height: number) => {
         imageStatus.width = width;
         imageStatus.height = height;
@@ -535,7 +535,7 @@ export default class ImageViewer extends React.Component<Props, State> {
               image.props.source = {};
             }
             image.props.source = {
-              uri: image.url,
+              uri: image.src,
               ...image.props.source
             };
           }
@@ -578,7 +578,7 @@ export default class ImageViewer extends React.Component<Props, State> {
               {this.props.failImageSource &&
                 this!.props!.renderImage!({
                   source: {
-                    uri: this.props.failImageSource.url
+                    uri: this.props.failImageSource.src
                   },
                   style: {
                     width: this.props.failImageSource.width,
@@ -640,10 +640,10 @@ export default class ImageViewer extends React.Component<Props, State> {
    */
   public saveToLocal = () => {
     if (!this.props.onSave) {
-      CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].url);
+      CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].src);
       this!.props!.onSaveToCamera!(this.state.currentShowIndex);
     } else {
-      this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].url);
+      this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].src);
     }
 
     this.setState({ isShowMenu: false });
