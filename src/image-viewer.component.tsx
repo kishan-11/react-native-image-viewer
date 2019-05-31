@@ -641,14 +641,16 @@ export default class ImageViewer extends React.Component<Props, State> {
    * 保存当前图片到本地相册
    */
   public saveToLocal = () => {
-    if (!this.props.onSave) {
-      CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].src);
-      this!.props!.onSaveToCamera!(this.state.currentShowIndex);
-    } else {
-      this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].src);
-    }
-
-    this.setState({ isShowMenu: false });
+    if(this.props.imageUrls[this.state.currentShowIndex || 0].src) {
+      if (!this.props.onSave) {
+        CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].src);
+        this!.props!.onSaveToCamera!(this.state.currentShowIndex);
+      } else {
+        this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].src);
+      }
+  
+      this.setState({ isShowMenu: false });
+    };
   };
 
   public getMenu() {
