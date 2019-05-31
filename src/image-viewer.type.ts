@@ -178,7 +178,7 @@ export class Props {
   /**
    * function that fires when user swipes down
    */
-  public onSwipeDown?: (isSucess?: boolean) => void = () => {
+  public onSwipeDown?: (isSucess?: boolean | undefined) => void = () => {
     //
   };
 
