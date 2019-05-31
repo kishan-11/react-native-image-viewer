@@ -677,14 +677,14 @@ export default class ImageViewer extends React.Component<Props, State> {
     this.setState({ isShowMenu: false });
   };
 
-  public handleSwipeDown = (isSucess: boolean | undefined) => {
+  public handleSwipeDown = (isSucess: boolean) => {
     if (this.props.onSwipeDown) {
       this.props.onSwipeDown(isSucess);
     }
     this.handleCancel();
   };
 
-  public handlePanSwipeDown = (dY: number | undefined) => {
+  public handlePanSwipeDown = (dY: number) => {
     if (this.props.handlePanSwipeDown) {
       this.props.handlePanSwipeDown(dY);
     }

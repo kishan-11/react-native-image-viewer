@@ -202,7 +202,7 @@ export class Props {
   public onChange?: (index?: number) => void = () => {
     //
   };
-  public handlePanSwipeDown?: (dY?: number | undefined) => void = () => {
+  public handlePanSwipeDown?: (dY?: number) => void = () => {
     //
   }
 }
@@ -235,7 +235,7 @@ export class State {
 }
 
 export interface IImageInfo {
-  type?: string | undefined;
+  type?: string;
   src?: string;
   url?: string;
   /**
